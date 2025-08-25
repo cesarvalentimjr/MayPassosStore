@@ -9,7 +9,6 @@ st.set_page_config(
     page_icon="👗",
     layout="wide",
     initial_sidebar_state="collapsed"
-
 )
 
 # CSS customizado para seguir a identidade visual
@@ -30,26 +29,6 @@ st.markdown("""
         border-bottom: 2px solid black;
         margin-bottom: 2rem;
         text-align: center;
-    }
-    
-    .logo-text {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 3rem;
-        font-weight: 600;
-        color: black;
-        letter-spacing: 0.2em;
-        margin: 0;
-        text-transform: uppercase;
-    }
-    
-    .store-text {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.2rem;
-        font-weight: 300;
-        color: black;
-        letter-spacing: 0.3em;
-        margin-top: 0.5rem;
-        text-transform: uppercase;
     }
     
     /* Estilo dos produtos */
@@ -159,13 +138,10 @@ def load_image(image_path):
         st.warning(f"Erro ao carregar imagem: {e}")
         return None
 
-# Header da aplicação
-st.markdown("""
-<div class="header-container">
-    <h1 class="logo-text">May Passos</h1>
-    <p class="store-text">Store</p>
-</div>
-""", unsafe_allow_html=True)
+# Header da aplicação com logo
+st.markdown('<div class="header-container">', unsafe_allow_html=True)
+st.image("images/logo.jpg", use_column_width=False, width=300)  # ajuste o width conforme necessário
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Carregar produtos
 products = load_products()
@@ -266,4 +242,3 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
-
