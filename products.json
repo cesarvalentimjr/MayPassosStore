@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1",
+    "name": "Vestido Midi Elegance",
+    "price": "R$ 189,90",
+    "description": "Vestido midi em tecido leve, caimento perfeito, ideal para eventos especiais. Disponível nos tamanhos P, M, G.",
+    "image_url": "images/vestido_midi_elegance.png"
+  },
+  {
+    "id": "2",
+    "name": "Blusa Seda Clássica",
+    "price": "R$ 99,50",
+    "description": "Blusa de seda com toque macio, gola V, perfeita para combinar com saias ou calças. Cores: branco, preto, nude.",
+    "image_url": "images/blusa_seda_classica.png"
+  },
+  {
+    "id": "3",
+    "name": "Calça Pantalona Conforto",
+    "price": "R$ 145,00",
+    "description": "Calça pantalona em linho, cintura alta, proporcionando conforto e elegância. Tamanhos PP ao GG.",
+    "image_url": "images/calca_pantalona_conforto.png"
+  }
+]
+
