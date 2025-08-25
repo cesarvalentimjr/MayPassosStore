@@ -140,7 +140,7 @@ def load_image(image_path):
 
 # Header da aplicação com logo
 st.markdown('<div class="header-container">', unsafe_allow_html=True)
-st.image("images/logo.jpg", use_column_width=False, width=350)  # ajuste width se quiser maior/menor
+st.image("logo.jpg", use_column_width=False, width=350)  # ajuste width se quiser maior/menor
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Carregar produtos
