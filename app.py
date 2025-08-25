@@ -35,7 +35,7 @@ st.markdown("""
         margin-bottom: 1rem;
     }
     .logo-container img {
-        max-width: 500px;   /* ajuste aqui para deixar maior/menor */
+        max-width: 400px;   /* ajuste aqui para deixar maior/menor */
     }
 
     .product-card {
