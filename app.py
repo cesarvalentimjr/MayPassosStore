@@ -17,12 +17,12 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
     .main {
-        padding-top: 0.5rem;
+        padding-top: 0rem;
     }
 
     .header-container {
         background-color: white;
-        padding: 2rem 0;
+        padding: 0rem 0;
         
         margin-bottom: 2rem;
       display: flex;
