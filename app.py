@@ -23,9 +23,11 @@ st.markdown("""
     .header-container {
         background-color: white;
         padding: 2rem 0;
-        border-bottom: 2px solid black;
+        
         margin-bottom: 2rem;
-        text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .logo-container {
