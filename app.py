@@ -169,6 +169,8 @@ if products:
             categories.append("Blusas")
         elif "Calça" in product["name"] and "Calças" not in categories:
             categories.append("Calças")
+        elif "Camisa" in product["name"] and "Camisas" not in categories:
+            categories.append("Camisas")
 
     category_filter = st.sidebar.selectbox("Categoria", categories)
 
