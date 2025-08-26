@@ -24,7 +24,7 @@ st.markdown("""
         background-color: white;
         padding: 0rem 0;
         
-        margin-bottom: 2rem;
+        margin-bottom: 0rem;
       display: flex;
       flex-direction: column;
       align-items: center;
