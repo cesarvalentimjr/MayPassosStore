@@ -235,7 +235,7 @@ st.markdown("""
         © 2025 May Passos Store - Todos os direitos reservados
     </p>
     <p style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem;">
-        Entre em contato: (71) 99100-1682
+        Entre em contato: <a href="https://wa.me/5571991001682">(71) 99100-1682</a>
     </p>
 </div>
 """, unsafe_allow_html=True)
