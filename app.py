@@ -17,7 +17,7 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
     .main {
-        padding-top: 2rem;
+        padding-top: 0.5rem;
     }
 
     .header-container {
@@ -226,10 +226,10 @@ st.markdown("---")
 st.markdown("""
 <div style="text-align: center; padding: 2rem; color: #666;">
     <p style="font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">
-        © 2024 May Passos Store - Todos os direitos reservados
+        © 2025 May Passos Store - Todos os direitos reservados
     </p>
     <p style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem;">
-        Entre em contato: (XX) XXXXX-XXXX
+        Entre em contato: (71) 99100-1682
     </p>
 </div>
 """, unsafe_allow_html=True)
