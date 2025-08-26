@@ -156,10 +156,10 @@ products = load_products()
 if products:
     st.sidebar.markdown('<p class="filter-title">Filtros</p>', unsafe_allow_html=True)
 
-   # price_filter = st.sidebar.selectbox(
-       # "Faixa de Preço",
-       # ["Todos os preços", "Até R$ 100", "R$ 100 - R$ 150", "Acima de R$ 150"]
-   # )
+    price_filter = st.sidebar.selectbox(
+        "Faixa de Preço",
+        ["Todos os preços", "Até R$ 100", "R$ 100 - R$ 150", "Acima de R$ 150"]
+    )
 
     categories = ["Todas as categorias"]
     for product in products:
