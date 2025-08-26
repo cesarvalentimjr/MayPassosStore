@@ -171,6 +171,10 @@ if products:
             categories.append("Calças")
         elif "Camisa" in product["name"] and "Camisas" not in categories:
             categories.append("Camisas")
+         elif "Conjunto" in product["name"] and "Conjuntos" not in categories:
+            categories.append("Conjuntos")
+          elif "Regata" in product["name"] and "Regatas" not in categories:
+            categories.append("Regatas")
 
     category_filter = st.sidebar.selectbox("Categoria", categories)
 
@@ -182,11 +186,11 @@ if products:
             price_str = product["price"].replace("R$ ", "").replace(",", ".")
             price_value = float(price_str)
 
-            if price_filter == "Até R$ 100" and price_value <= 100:
+            if price_filter == "Até R$ 200" and price_value <= 200:
                 filtered_products.append(product)
-            elif price_filter == "R$ 100 - R$ 150" and 100 < price_value <= 150:
+            elif price_filter == "R$200 - R$ 400" and 200 < price_value <= 400:
                 filtered_products.append(product)
-            elif price_filter == "Acima de R$ 150" and price_value > 150:
+            elif price_filter == "Acima de R$ 400" and price_value > 400:
                 filtered_products.append(product)
 
     if category_filter != "Todas as categorias":
