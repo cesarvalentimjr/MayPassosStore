@@ -60,6 +60,9 @@ st.markdown("""
         font-weight: 600;
         color: black;
         margin-bottom: 0.5rem;
+        background-color: white;
+        padding: 0.5rem;
+        border-radius: 4px;
     }
 
     .product-price {
@@ -68,6 +71,9 @@ st.markdown("""
         font-weight: 700;
         color: black;
         margin-bottom: 1rem;
+        background-color: white;
+        padding: 0.5rem;
+        border-radius: 4px;
     }
 
     .product-description {
@@ -77,6 +83,9 @@ st.markdown("""
         color: #333;
         line-height: 1.6;
         margin-bottom: 1rem;
+        background-color: white;
+        padding: 0.5rem;
+        border-radius: 4px;
     }
 
     .contact-button {
@@ -239,4 +248,3 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
-
