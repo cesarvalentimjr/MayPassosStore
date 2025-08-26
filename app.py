@@ -158,7 +158,7 @@ if products:
 
     price_filter = st.sidebar.selectbox(
         "Faixa de Preço",
-        ["Todos os preços", "Até R$ 100", "R$ 100 - R$ 150", "Acima de R$ 150"]
+        ["Todos os preços", "Até R$ 200", "R$ 200 - R$ 400", "Acima de R$ 400"]
     )
 
     categories = ["Todas as categorias"]
@@ -171,9 +171,9 @@ if products:
             categories.append("Calças")
         elif "Camisa" in product["name"] and "Camisas" not in categories:
             categories.append("Camisas")
-         elif "Conjunto" in product["name"] and "Conjuntos" not in categories:
+        elif "Conjunto" in product["name"] and "Conjuntos" not in categories:
             categories.append("Conjuntos")
-          elif "Regata" in product["name"] and "Regatas" not in categories:
+        elif "Regata" in product["name"] and "Regatas" not in categories:
             categories.append("Regatas")
 
     category_filter = st.sidebar.selectbox("Categoria", categories)
