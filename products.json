@@ -1,10 +1,10 @@
 [
   {
     "id": "1",
-    "name": "Vestido Midi Elegance",
-    "price": "R$ 189,90",
-    "description": "Vestido midi em tecido leve, caimento perfeito, ideal para eventos especiais. Disponível nos tamanhos P, M, G.",
-    "image_url": "images/vestido_midi_elegance.png"
+    "name": "Camisa maxi poá",
+    "price": "R$ 399,90",
+    "description": "Camisa maxi poá maravilhosa. Confeccionada em algodão e o decote transpassado com gola marcada que alonga a silhueta, especialmente o pescoço e equilibra a largura dos ombros. Favorece todos os tipos de corpo. Disponível no tamanho M.",
+    "image_url": "images/camisa_maxi_poa.png"
   },
   {
     "id": "2",
