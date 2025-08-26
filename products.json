@@ -2,23 +2,31 @@
   {
     "id": "1",
     "name": "Camisa maxi poá",
-    "price": "R$ 399,90",
+    "price": "R$ 399,00",
     "description": "Camisa maxi poá maravilhosa. Confeccionada em algodão e o decote transpassado com gola marcada que alonga a silhueta, especialmente o pescoço e equilibra a largura dos ombros. Favorece todos os tipos de corpo. Disponível no tamanho M.",
     "image_url": "images/camisa_maxi_poa.png"
   },
   {
     "id": "2",
-    "name": "Blusa Seda Clássica",
-    "price": "R$ 99,50",
-    "description": "Blusa de seda com toque macio, gola V, perfeita para combinar com saias ou calças. Cores: branco, preto, nude.",
-    "image_url": "images/blusa_seda_classica.png"
+    "name": "Regata viscose",
+    "price": "R$ 189,00",
+    "description": "Regata em viscose com toque macio, perfeita para combinar com saias ou calças. Disponível no tamanho M.",
+    "image_url": "images/regata_viscose.png"
   },
   {
     "id": "3",
-    "name": "Calça Pantalona Conforto",
-    "price": "R$ 145,00",
-    "description": "Calça pantalona em linho, cintura alta, proporcionando conforto e elegância. Tamanhos PP ao GG.",
-    "image_url": "images/calca_pantalona_conforto.png"
+    "name": "Vestido midi verde lima",
+    "price": "R$ 689,00",
+    "description": "Vestido midi confeccionado em algodão com elastano, que garante conforto e caimento impecável. Com design sofisticado, o modelo possui alças largas, decote quadrado e detalhe de recorte lateral que traz modernidade à produção. A saia em camadas suaves cria leve volume e movimento.
+Perfeito demais!!! Tamanhos P e M.",
+    "image_url": "images/vestido_midi_verdelima.png"
+  },
+  {
+    "id": "4",
+    "name": "Conjunto kimono alfaiataria",
+    "price": "R$ 689,00",
+    "description": "Conjunto em alfaiataria leve. O kimono em um leitura contemporânea com manga ampla, faixa na cintura e caimento que veste com leveza. Um conjunto com atualidade de styling pronto para você arrasar!!! Disponível no tamanho M.",
+    "image_url": "images/conjunto_alfaiataria_kimono.png"
   }
 ]
 
