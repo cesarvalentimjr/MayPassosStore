@@ -157,8 +157,8 @@ def load_image(image_path):
         return None
 
 # Header da aplicação com logo centralizada
-st.markdown("<div class=\"header-container\">", unsafe_allow_html=True)
-st.markdown("<div class=\"logo-container\">", unsafe_allow_html=True)
+st.markdown("<div class=\'header-container\'>", unsafe_allow_html=True)
+st.markdown("<div class=\'logo-container\'>", unsafe_allow_html=True)
 st.image("logo.jpg") 
 st.markdown("</div>", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
@@ -167,7 +167,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 products = load_products_from_excel()
 
 if products:
-    st.sidebar.markdown("<p class=\"filter-title\">Filtros</p>", unsafe_allow_html=True)
+    st.sidebar.markdown("<p class=\'filter-title\'>Filtros</p>", unsafe_allow_html=True)
 
     price_filter = st.sidebar.selectbox(
         "Faixa de Preço",
@@ -212,7 +212,7 @@ if products:
         filtered_products = temp_filtered_products
 
     if category_filter != "Todas as categorias":
-        filtered_products = [p for p in filtered_products if category_filter.rstrip(\'s\') in p["name"]]
+        filtered_products = [p for p in filtered_products if category_filter.rstrip("s") in p["name"]]
 
     st.markdown(f"### Encontrados {len(filtered_products)} produto(s)")
 
@@ -226,7 +226,7 @@ if products:
 
                 with col:
                     with st.container():
-                        st.markdown("<div class=\"product-card\">", unsafe_allow_html=True)
+                        st.markdown("<div class=\'product-card\'>", unsafe_allow_html=True)
                         
                         # Carrossel de imagens
                         image_urls = []
