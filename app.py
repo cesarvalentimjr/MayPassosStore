@@ -167,7 +167,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 products = load_products_from_excel()
 
 if products:
-    st.sidebar.markdown(\"<p class=\"filter-title\">Filtros</p>\", unsafe_allow_html=True)
+    st.sidebar.markdown("<p class=\"filter-title\">Filtros</p>", unsafe_allow_html=True)
 
     price_filter = st.sidebar.selectbox(
         "Faixa de Preço",
@@ -226,7 +226,7 @@ if products:
 
                 with col:
                     with st.container():
-                        st.markdown(\"<div class=\"product-card\">\", unsafe_allow_html=True)
+                        st.markdown("<div class=\"product-card\">", unsafe_allow_html=True)
                         
                         # Carrossel de imagens
                         image_urls = []
@@ -257,9 +257,9 @@ if products:
                         else:
                             st.warning("Nenhuma imagem disponível para este produto.")
 
-                        st.markdown(f\'<h3 class=\"product-name\">{product["name"]}</h3>\', unsafe_allow_html=True)
-                        st.markdown(f\'<p class=\"product-price\">{product["price"]}</p>\', unsafe_allow_html=True)
-                        st.markdown(f\'<p class=\"product-description\">{product["description"]}</p>\', unsafe_allow_html=True)
+                        st.markdown(f\'<h3>{product["name"]}</h3>\', unsafe_allow_html=True)
+                        st.markdown(f\'<h4>{product["price"]}</h4>\', unsafe_allow_html=True)
+                        st.markdown(f\'\<p>{product["description"]}\</p>\', unsafe_allow_html=True)
 
                         if st.button(f"Tenho Interesse", key=f"btn_{product[\'id\']}", help="Clique para demonstrar interesse"):
                             st.success(f"Interesse registrado em: {product[\'name\']}")
@@ -278,7 +278,7 @@ st.markdown("""
         © 2025 May Passos Store - Todos os direitos reservados
     </p>
     <p style="font-family: \'Montserrat\', sans-serif; font-size: 0.8rem;">
-        Entre em contato: <a href=\"https://wa.me/5571991001682\"> (71) 99100-1682</a>
+        Entre em contato: <a href=\'https://wa.me/5571991001682\'> (71) 99100-1682</a>
     </p>
 </div>
 """, unsafe_allow_html=True)
