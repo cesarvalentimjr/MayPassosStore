@@ -59,6 +59,9 @@ st.markdown("""
         font-weight: 600;
         color: black;
         margin-bottom: 0.5rem;
+        background-color: white;
+        padding: 0.5rem;
+        border-radius: 4px;
     }
 
     .product-price {
@@ -67,6 +70,9 @@ st.markdown("""
         font-weight: 700;
         color: black;
         margin-bottom: 1rem;
+        background-color: white;
+        padding: 0.5rem;
+        border-radius: 4px;
     }
 
     .product-description {
@@ -76,6 +82,9 @@ st.markdown("""
         color: #333;
         line-height: 1.6;
         margin-bottom: 1rem;
+        background-color: white;
+        padding: 0.5rem;
+        border-radius: 4px;
     }
 
     .contact-button {
@@ -150,11 +159,7 @@ def load_image(image_path):
 # Header da aplicação com logo centralizada
 st.markdown("<div class=\"header-container\">", unsafe_allow_html=True)
 st.markdown("<div class=\"logo-container\">", unsafe_allow_html=True)
-# Substitua "logo.jpg" pelo caminho da sua logo, se for uma imagem
-# st.image("logo.jpg") 
-# Ou use o texto da logo como antes, se preferir
-st.markdown("<h1 class=\"logo-text\">May Passos</h1>", unsafe_allow_html=True)
-st.markdown("<p class=\"store-text\">Store</p>", unsafe_allow_html=True)
+st.image("logo.jpg") 
 st.markdown("</div>", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
 
@@ -162,11 +167,11 @@ st.markdown("</div>", unsafe_allow_html=True)
 products = load_products_from_excel()
 
 if products:
-    st.sidebar.markdown(\'<p class="filter-title">Filtros</p>\', unsafe_allow_html=True)
+    st.sidebar.markdown(\"<p class=\"filter-title\">Filtros</p>\", unsafe_allow_html=True)
 
     price_filter = st.sidebar.selectbox(
         "Faixa de Preço",
-        ["Todos os preços", "Até R$ 100", "R$ 100 - R$ 150", "Acima de R$ 150"]
+        ["Todos os preços", "Até R$ 200", "R$ 200 - R$ 400", "Acima de R$ 400"]
     )
 
     categories = ["Todas as categorias"]
@@ -178,6 +183,12 @@ if products:
             categories.append("Blusas")
         elif "Calça" in product["name"] and "Calças" not in categories:
             categories.append("Calças")
+        elif "Camisa" in product["name"] and "Camisas" not in categories:
+            categories.append("Camisas")
+        elif "Conjunto" in product["name"] and "Conjuntos" not in categories:
+            categories.append("Conjuntos")
+        elif "Regata" in product["name"] and "Regatas" not in categories:
+            categories.append("Regatas")
     
     category_filter = st.sidebar.selectbox("Categoria", categories)
 
@@ -192,11 +203,11 @@ if products:
             except ValueError:
                 price_value = 0.0 # Valor padrão para preços inválidos
             
-            if price_filter == "Até R$ 100" and price_value <= 100:
+            if price_filter == "Até R$ 200" and price_value <= 200:
                 temp_filtered_products.append(product)
-            elif price_filter == "R$ 100 - R$ 150" and 100 < price_value <= 150:
+            elif price_filter == "R$ 200 - R$ 400" and 200 < price_value <= 400:
                 temp_filtered_products.append(product)
-            elif price_filter == "Acima de R$ 150" and price_value > 150:
+            elif price_filter == "Acima de R$ 400" and price_value > 400:
                 temp_filtered_products.append(product)
         filtered_products = temp_filtered_products
 
@@ -215,41 +226,40 @@ if products:
 
                 with col:
                     with st.container():
-                        st.markdown(\'<div class="product-card">\', unsafe_allow_html=True)
+                        st.markdown(\"<div class=\"product-card\">\", unsafe_allow_html=True)
                         
                         # Carrossel de imagens
                         image_urls = []
-                        if 'image_urls' in product and pd.notna(product['image_urls']):
-                            image_urls = [url.strip() for url in str(product['image_urls']).split(',') if url.strip()]
+                        if \'image_urls\' in product and pd.notna(product[\'image_urls\']):
+                            image_urls = [url.strip() for url in str(product[\'image_urls\']).split(\,\') if url.strip()]
                         
                         if image_urls:
-                            # Exibe a primeira imagem diretamente
-                            st.image(load_image(image_urls[0]), use_column_width=True)
+                            # Inicializa o índice da imagem atual no session_state
+                            if f\'current_image_index_{product["id"]}\' not in st.session_state:
+                                st.session_state[f\'current_image_index_{product["id"]}\' ] = 0
+
+                            current_image_index = st.session_state[f\'current_image_index_{product["id"]}\' ]
                             
-                            # Se houver mais de uma imagem, cria um carrossel com botões
+                            # Exibe a imagem atual
+                            st.image(load_image(image_urls[current_image_index]), use_column_width=True)
+                            
+                            # Botões de navegação do carrossel
                             if len(image_urls) > 1:
-                                current_image_index = st.session_state.get(f'image_index_{product["id"]}', 0)
-                                
-                                col1, col2, col3 = st.columns([1, 6, 1])
-                                with col1:
-                                    if st.button("◀️", key=f"prev_{product["id"]}"):
-                                        current_image_index = (current_image_index - 1) % len(image_urls)
-                                        st.session_state[f'image_index_{product["id"]}'] = current_image_index
+                                col1_carousel, col2_carousel, col3_carousel = st.columns([1, 6, 1])
+                                with col1_carousel:
+                                    if st.button("◀️", key=f"prev_img_{product["id"]}"):
+                                        st.session_state[f\'current_image_index_{product["id"]}\' ] = (current_image_index - 1) % len(image_urls)
                                         st.rerun()
-                                with col3:
-                                    if st.button("▶️", key=f"next_{product["id"]}"):
-                                        current_image_index = (current_image_index + 1) % len(image_urls)
-                                        st.session_state[f'image_index_{product["id"]}'] = current_image_index
+                                with col3_carousel:
+                                    if st.button("▶️", key=f"next_img_{product["id"]}"):
+                                        st.session_state[f\'current_image_index_{product["id"]}\' ] = (current_image_index + 1) % len(image_urls)
                                         st.rerun()
-                                
-                                # Exibe a imagem atual do carrossel
-                                st.image(load_image(image_urls[current_image_index]), use_column_width=True)
                         else:
                             st.warning("Nenhuma imagem disponível para este produto.")
 
-                        st.markdown(f\'<h3>{product["name"]}</h3>\', unsafe_allow_html=True)
-                        st.markdown(f\'<h4>{product["price"]}</h4>\', unsafe_allow_html=True)
-                        st.markdown(f\'\<p>{product["description"]}\</p>\', unsafe_allow_html=True)
+                        st.markdown(f\'<h3 class=\"product-name\">{product["name"]}</h3>\', unsafe_allow_html=True)
+                        st.markdown(f\'<p class=\"product-price\">{product["price"]}</p>\', unsafe_allow_html=True)
+                        st.markdown(f\'<p class=\"product-description\">{product["description"]}</p>\', unsafe_allow_html=True)
 
                         if st.button(f"Tenho Interesse", key=f"btn_{product[\'id\']}", help="Clique para demonstrar interesse"):
                             st.success(f"Interesse registrado em: {product[\'name\']}")
@@ -268,7 +278,7 @@ st.markdown("""
         © 2025 May Passos Store - Todos os direitos reservados
     </p>
     <p style="font-family: \'Montserrat\', sans-serif; font-size: 0.8rem;">
-        Entre em contato: (71) 99100-1682
+        Entre em contato: <a href=\"https://wa.me/5571991001682\"> (71) 99100-1682</a>
     </p>
 </div>
 """, unsafe_allow_html=True)
