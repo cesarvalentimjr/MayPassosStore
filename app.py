@@ -14,7 +14,7 @@ st.set_page_config(
 # CSS customizado para seguir a identidade visual
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+    @import url(\'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap\');
 
     .main {
         padding-top: 0rem;
@@ -54,7 +54,7 @@ st.markdown("""
     }
 
     .product-name {
-        font-family: 'Montserrat', sans-serif;
+        font-family: \'Montserrat\', sans-serif;
         font-size: 1.5rem;
         font-weight: 600;
         color: black;
@@ -65,7 +65,7 @@ st.markdown("""
     }
 
     .product-price {
-        font-family: 'Montserrat', sans-serif;
+        font-family: \'Montserrat\', sans-serif;
         font-size: 1.8rem;
         font-weight: 700;
         color: black;
@@ -76,7 +76,7 @@ st.markdown("""
     }
 
     .product-description {
-        font-family: 'Montserrat', sans-serif;
+        font-family: \'Montserrat\', sans-serif;
         font-size: 1rem;
         font-weight: 400;
         color: #333;
@@ -92,7 +92,7 @@ st.markdown("""
         color: white;
         border: none;
         padding: 0.75rem 2rem;
-        font-family: 'Montserrat', sans-serif;
+        font-family: \'Montserrat\', sans-serif;
         font-size: 1rem;
         font-weight: 500;
         text-transform: uppercase;
@@ -114,7 +114,7 @@ st.markdown("""
     }
 
     .filter-title {
-        font-family: 'Montserrat', sans-serif;
+        font-family: \'Montserrat\', sans-serif;
         font-size: 1.2rem;
         font-weight: 600;
         color: black;
@@ -157,8 +157,8 @@ def load_image(image_path):
         return None
 
 # Header da aplicação com logo centralizada
-st.markdown("<div class='header-container'>", unsafe_allow_html=True)
-st.markdown("<div class='logo-container'>", unsafe_allow_html=True)
+st.markdown("<div class=\'header-container\'>", unsafe_allow_html=True)
+st.markdown("<div class=\'logo-container\'>", unsafe_allow_html=True)
 st.image("logo.jpg") 
 st.markdown("</div>", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
@@ -167,7 +167,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 products = load_products_from_excel()
 
 if products:
-    st.sidebar.markdown("<p class='filter-title'>Filtros</p>", unsafe_allow_html=True)
+    st.sidebar.markdown("<p class=\'filter-title\'>Filtros</p>", unsafe_allow_html=True)
 
     price_filter = st.sidebar.selectbox(
         "Faixa de Preço",
@@ -226,7 +226,7 @@ if products:
 
                 with col:
                     with st.container():
-                        st.markdown("<div class='product-card'>", unsafe_allow_html=True)
+                        st.markdown("<div class=\'product-card\'>", unsafe_allow_html=True)
                         
                         # Carrossel de imagens
                         image_urls = []
@@ -236,9 +236,9 @@ if products:
                         if image_urls:
                             # Inicializa o índice da imagem atual no session_state
                             if f'current_image_index_{product["id"]}' not in st.session_state:
-                                st.session_state[f'current_image_index_{product["id"]}' ] = 0
+                                st.session_state[f'current_image_index_{product["id"]}'] = 0
 
-                            current_image_index = st.session_state[f'current_image_index_{product["id"]}' ]
+                            current_image_index = st.session_state[f'current_image_index_{product["id"]}']
                             
                             # Exibe a imagem atual
                             st.image(load_image(image_urls[current_image_index]), use_column_width=True)
@@ -247,12 +247,12 @@ if products:
                             if len(image_urls) > 1:
                                 col1_carousel, col2_carousel, col3_carousel = st.columns([1, 6, 1])
                                 with col1_carousel:
-                                    if st.button("◀️", key=f"prev_img_{product["id"]}"):
-                                        st.session_state[f'current_image_index_{product["id"]}' ] = (current_image_index - 1) % len(image_urls)
+                                    if st.button("◀️", key=f"prev_img_{product['id']}"):
+                                        st.session_state[f'current_image_index_{product["id"]}'] = (current_image_index - 1) % len(image_urls)
                                         st.rerun()
                                 with col3_carousel:
-                                    if st.button("▶️", key=f"next_img_{product["id"]}"):
-                                        st.session_state[f'current_image_index_{product["id"]}' ] = (current_image_index + 1) % len(image_urls)
+                                    if st.button("▶️", key=f"next_img_{product['id']}"):
+                                        st.session_state[f'current_image_index_{product["id"]}'] = (current_image_index + 1) % len(image_urls)
                                         st.rerun()
                         else:
                             st.warning("Nenhuma imagem disponível para este produto.")
@@ -261,7 +261,7 @@ if products:
                         st.markdown(f'<p class="product-price">{product["price"]}</p>', unsafe_allow_html=True)
                         st.markdown(f'<p class="product-description">{product["description"]}</p>', unsafe_allow_html=True)
 
-                        if st.button(f"Tenho Interesse", key=f"btn_{product["id"]}", help="Clique para demonstrar interesse"):
+                        if st.button(f"Tenho Interesse", key=f"btn_{product['id']}", help="Clique para demonstrar interesse"):
                             st.success(f"Interesse registrado em: {product["name"]}")
                             st.info("Entre em contato conosco pelo WhatsApp para mais informações!")
 
@@ -274,11 +274,12 @@ else:
 st.markdown("---")
 st.markdown("""
 <div style="text-align: center; padding: 2rem; color: #666;">
-    <p style="font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">
+    <p style="font-family: \'Montserrat\', sans-serif; font-size: 0.9rem;">
         © 2025 May Passos Store - Todos os direitos reservados
     </p>
-    <p style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem;">
-        Entre em contato: <a href='https://wa.me/5571991001682'> (71) 99100-1682</a>
+    <p style="font-family: \'Montserrat\', sans-serif; font-size: 0.8rem;">
+        Entre em contato: <a href=\'https://wa.me/5571991001682\'> (71) 99100-1682</a>
     </p>
 </div>
 """, unsafe_allow_html=True)
+
