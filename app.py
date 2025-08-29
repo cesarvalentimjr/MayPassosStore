@@ -262,7 +262,7 @@ if products:
                         st.markdown(f'<p class="product-description">{product["description"]}</p>', unsafe_allow_html=True)
 
                         if st.button(f"Tenho Interesse", key=f"btn_{product['id']}", help="Clique para demonstrar interesse"):
-                            st.success(f"Interesse registrado em: {product["name"]}")
+                            st.success(f"Interesse registrado em: {product['name']}")
                             st.info("Entre em contato conosco pelo WhatsApp para mais informações!")
 
                         st.markdown("</div>", unsafe_allow_html=True)
@@ -282,4 +282,5 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
+
 
